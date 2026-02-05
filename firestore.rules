@@ -1,0 +1,16 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Reports: Public read by ID, Write only by admin (Functions)
+    match /reports/{reportId} {
+      allow read: if true;
+      allow write: if false; // Only written by backend functions
+    }
+    
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
