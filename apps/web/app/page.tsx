@@ -18,7 +18,8 @@ export default function Home() {
   useEffect(() => {
     const fetchHistory = async () => {
         try {
-            const apiUrl = 'http://localhost:5099/gmb-audit-generator/us-central1/api/history';
+            const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5099/gmb-audit-generator/us-central1/api';
+            const apiUrl = `${baseUrl}/history`;
             
             const res = await fetch(apiUrl);
             if (res.ok) {
@@ -37,8 +38,8 @@ export default function Home() {
     setLoading(true);
     setError(null);
 
-    // Hardcode to match the Emulator's self-reported ID from the screenshot
-    const apiUrl = 'http://localhost:5099/gmb-audit-generator/us-central1/api/generate';
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5099/gmb-audit-generator/us-central1/api';
+    const apiUrl = `${baseUrl}/generate`;
     console.log('Submitting to:', apiUrl);
 
     try {

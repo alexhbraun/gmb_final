@@ -21,7 +21,8 @@ export function ReportDisplay({ report }: { report: any }) {
     const host = window.location.host;
     // In emulator, functions run on 5001. We need to point to the API.
     // The frontend usually knows its API URL via env or hardcoded.
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5099/gmb-audit-generator/us-central1/api';
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5099/gmb-audit-generator/us-central1/api';
+    const apiUrl = baseUrl;
     window.location.href = `${apiUrl}/report/${report.id}/pdf`;
   };
 
