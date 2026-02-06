@@ -97,6 +97,7 @@ REGRAS ABSOLUTAS:
 
 Para cada ponto:
 - Use um **título concreto**, focado em efeito prático percebido pelo cliente.
+- **Utilize sempre dois pontos (:) após o título em negrito**.
 - Máximo de **2 a 3 frases curtas**.
 - Estrutura obrigatória:
   1) Situação atual observável.
@@ -112,6 +113,7 @@ Enquadre sempre como **oportunidade de ganho** ou **ajuste de maior impacto**.
 Regras:
 - Exatamente **7 itens**.
 - Formato fixo: “√ Dia X: Título da Ação”.
+- **Utilize sempre dois pontos (:) após o título em negrito** antes da justificativa.
 - Cada ação DEVE conter uma justificativa curta, natural e fluida.
 - As justificativas devem se basear **exclusivamente nos dados fornecidos**.
 - Se os dados já forem fortes, use **benchmarking competitivo**
@@ -134,6 +136,7 @@ Forneça exatamente **3 modelos**:
 - Positivo
 - Neutro
 - Negativo
+- **Utilize sempre dois pontos (:) após o rótulo do modelo** (ex: "Opção 1: Para Elogios:").
 
 Tom:
 - Humano
