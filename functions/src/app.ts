@@ -255,8 +255,9 @@ app.get('/report/:id/pdf', async (req, res): Promise<any> => {
 
   try {
     const pdfBuffer = await pdfService.generatePdf(report);
+    const safeName = report.normalizedPlace.name.replace(/[^a-z0-9]/gi, '_').toLowerCase();
     res.setHeader('Content-Type', 'application/pdf');
-    res.setHeader('Content-Disposition', `attachment; filename="gmb-audit-${id}.pdf"`);
+    res.setHeader('Content-Disposition', `attachment; filename="Google My Business Audit - ${report.normalizedPlace.name}.pdf"`);
     return res.send(pdfBuffer);
   } catch (err: any) {
     console.error('PDF Error:', err);
@@ -288,7 +289,7 @@ app.post('/report/:id/pdf', async (req, res): Promise<any> => {
     try {
       const pdfBuffer = await pdfService.generatePdf(mergedReport);
       res.setHeader('Content-Type', 'application/pdf');
-      res.setHeader('Content-Disposition', `attachment; filename="gmb-audit-${id}.pdf"`);
+      res.setHeader('Content-Disposition', `attachment; filename="Google My Business Audit - ${mergedReport.normalizedPlace.name}.pdf"`);
       return res.send(pdfBuffer);
     } catch (err: any) {
       console.error('PDF Error:', err);
