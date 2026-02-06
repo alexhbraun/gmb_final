@@ -172,7 +172,11 @@ export default function Home() {
                 <h2 className="text-lg font-semibold text-gray-900 mb-4">Últimas Auditorias</h2>
                 <div className="space-y-3">
                     {history.map((item) => (
-                        <Link key={item.reportId} href={`/r/${item.reportId}`} className="block group">
+                        <div 
+                            key={item.reportId} 
+                            onClick={() => router.push(`/r/${item.reportId}`)}
+                            className="block group cursor-pointer"
+                        >
                             <div className="flex items-center justify-between p-3 bg-gray-50 rounded-md border border-gray-200 group-hover:border-blue-300 transition-colors">
                                 <div>
                                     <div className="font-medium text-gray-900 text-sm">{item.name}</div>
@@ -182,7 +186,7 @@ export default function Home() {
                                     {item.overallScore}/100
                                 </div>
                             </div>
-                        </Link>
+                        </div>
                     ))}
                 </div>
             </div>
