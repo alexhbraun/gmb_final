@@ -23,7 +23,11 @@ export class CacheService {
   private get db(): Firestore {
     if (!this._db) {
       this._db = admin.firestore();
-      this._db.settings({ ignoreUndefinedProperties: true });
+      try {
+        this._db.settings({ ignoreUndefinedProperties: true });
+      } catch (e) {
+        // Settings already applied, ignore
+      }
     }
     return this._db;
   }

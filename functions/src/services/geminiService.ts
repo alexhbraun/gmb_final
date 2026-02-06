@@ -43,6 +43,7 @@ export class GeminiService {
       });
 
       const responseText = result.response.text();
+      console.log('Gemini API Success: Report generated.');
       return JSON.parse(responseText) as AuditOutput;
     } catch (error: any) {
       console.error('Gemini API Error:', error.message || error);

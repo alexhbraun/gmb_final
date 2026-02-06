@@ -43,9 +43,9 @@ export class PdfService {
           body { 
             font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; 
             color: #334155; 
-            line-height: 1.6; 
+            line-height: 1.75; 
             margin: 0; 
-            padding: 40px;
+            padding: 50px 60px;
             background: #ffffff;
             position: relative;
           }
@@ -56,7 +56,7 @@ export class PdfService {
             display: flex; 
             justify-content: space-between; 
             align-items: flex-start; 
-            margin-bottom: 40px; 
+            margin-bottom: 60px; 
           }
           .logo { height: 50px; width: auto; }
           .report-meta { text-align: right; }
@@ -80,12 +80,12 @@ export class PdfService {
           .advisor-note {
             font-family: 'Gochi Hand', cursive;
             background: rgba(254, 240, 138, 0.4); /* soft highlighter yellow */
-            padding: 15px 25px;
-            margin: 30px 0;
+            padding: 24px 32px;
+            margin: 40px 0;
             border-left: 4px solid #d7b27e;
             font-size: 18px;
             color: #1e293b;
-            border-radius: 2px;
+            border-radius: 4px;
             transform: rotate(-0.5deg);
             page-break-inside: avoid;
             break-inside: avoid;
@@ -95,7 +95,7 @@ export class PdfService {
             display: grid; 
             grid-template-columns: 1fr 2fr; 
             gap: 40px; 
-            margin-bottom: 50px; 
+            margin-bottom: 80px; 
           }
           
           .score-card { 
@@ -149,12 +149,12 @@ export class PdfService {
           .metric-label { font-size: 10px; text-transform: uppercase; color: #94a3b8; font-weight: 700; margin-bottom: 4px; }
           .metric-value { font-size: 14px; font-weight: 700; color: #334155; }
 
-          .markdown-content { margin-top: 40px; }
+          .markdown-content { margin-top: 60px; }
           .markdown-content h1, .markdown-content h2 { 
-            font-size: 20px; 
+            font-size: 24px; 
             color: #0f172a; 
-            margin-top: 45px; 
-            margin-bottom: 20px;
+            margin-top: 48px; 
+            margin-bottom: 32px;
             display: flex;
             align-items: center;
           }
@@ -162,14 +162,49 @@ export class PdfService {
             content: "";
             display: inline-block;
             width: 4px;
-            height: 20px;
+            height: 24px;
             background: #d7b27e;
             margin-right: 12px;
             border-radius: 2px;
           }
-          .markdown-content h3 { font-size: 16px; color: #1e293b; margin-top: 30px; }
-          .markdown-content p { font-size: 14px; color: #475569; margin-bottom: 16px; }
-          .markdown-content li { font-size: 14px; color: #475569; margin-bottom: 8px; }
+          .markdown-content h3 { font-size: 18px; color: #1e293b; margin-top: 32px; margin-bottom: 20px; }
+          .markdown-content p { font-size: 14px; color: #475569; margin-bottom: 24px; }
+          .markdown-content li { font-size: 14px; color: #475569; margin-bottom: 20px; }
+          .markdown-content strong { color: #0f172a; font-weight: 700; }
+
+          .signature-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+            page-break-inside: avoid;
+            break-inside: avoid;
+          }
+          .signature-photo {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 15%;
+            border: 2px solid #f1f5f9;
+          }
+          .signature-info {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.4;
+          }
+          .signature-info strong {
+            font-size: 16px;
+            color: #0f172a;
+          }
+          .signature-info span {
+            font-size: 13px;
+            color: #64748b;
+          }
+          .signature-brand {
+            font-weight: 700;
+            color: #d7b27e !important;
+          }
           
           /* Prevent signature and key blocks from breaking across pages */
           .markdown-content h1, .markdown-content h2, .markdown-content h3 { page-break-after: avoid; }
@@ -238,7 +273,7 @@ export class PdfService {
         </div>
 
         <div class="footer">
-          <div><span class="footer-brand">Alexander Braun</span> • Nexo Estratégia Digital</div>
+          <div>Nexo Estratégia Digital</div>
           <div>Relatório gerado a partir de dados públicos do Google Maps.</div>
         </div>
       </body>

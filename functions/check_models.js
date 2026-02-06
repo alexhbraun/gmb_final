@@ -1,19 +1,31 @@
-const axios = require('axios');
-// Using the key from the error logs/env
-const key = process.env.GEMINI_API_KEY || 'AIzaSyAtRFS9M4hjnGP2A2bEFIwkmBgLhcVC7c4'; 
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+const dotenv = require("dotenv");
+const path = require("path");
 
-console.log('Fetching models...');
-axios.get(`https://generativelanguage.googleapis.com/v1beta/models?key=${key}`)
-  .then(res => {
-    const models = res.data.models || [];
-    console.log('Available models:');
-    models.forEach(m => console.log(`- ${m.name}: ${m.displayName}`));
-  })
-  .catch(err => {
-    console.error('Error fetching models:');
-    if (err.response) {
-        console.error(JSON.stringify(err.response.data, null, 2));
-    } else {
-        console.error(err.message);
+dotenv.config({ path: path.join(__dirname, ".env") });
+
+async function listModels() {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    console.error("GEMINI_API_KEY not found in .env");
+    return;
+  }
+  console.log("Using API Key starting with:", apiKey.substring(0, 7) + "...");
+
+  const genAI = new GoogleGenerativeAI(apiKey);
+  const modelsToTest = ["gemini-3-pro-preview", "gemini-3-pro", "gemini-2.5-pro", "gemini-1.5-pro"];
+
+  for (const modelId of modelsToTest) {
+    try {
+      console.log(`Checking for '${modelId}'...`);
+      const model = genAI.getGenerativeModel({ model: modelId });
+      const result = await model.generateContent("test");
+      console.log(`${modelId} is available! Output:`, result.response.text().substring(0, 50));
+      return; // Stop at first working model
+    } catch (e) {
+      console.log(`${modelId} failed:`, e.message);
     }
-  });
+  }
+}
+
+listModels();

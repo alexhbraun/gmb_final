@@ -10,11 +10,48 @@ body {
 .advisor-note {
   font-family: 'Gochi Hand', cursive;
   background-color: rgba(254, 240, 138, 0.4);
-  padding: 1rem 1.5rem;
-  margin: 2rem 0;
+  padding: 1.5rem 2rem;
+  margin: 2.5rem 0;
   border-left: 4px solid #d7b27e;
   font-size: 1.25rem;
   color: #1e293b;
-  border-radius: 0.125rem;
+  border-radius: 0.25rem;
   transform: rotate(-0.5deg);
+}
+
+.signature-container {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.signature-photo {
+  height: 3.75rem;
+  width: 3.75rem;
+  border-radius: 9999px;
+  object-fit: cover;
+  object-position: center 15%;
+  border: 2px solid #f1f5f9;
+}
+
+.signature-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.4;
+}
+
+.signature-info strong {
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+.signature-info span {
+  font-size: 0.8125rem;
+  color: #64748b;
+}
+
+.signature-brand {
+  font-weight: bold;
+  color: #d7b27e;
 }
