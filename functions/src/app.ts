@@ -12,10 +12,8 @@ import { SerpApiRankingService } from './services/rankingService';
 import { RankingService } from './services/rankingService';
 
 const app = express();
-app.use(cors({ 
-  origin: ['http://localhost:3000', 'https://gmbfinal.vercel.app'],
-  credentials: true
-}));
+// Enable CORS for all origins in development and production to resolve persistent fetch issues
+app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
 
 const placesKey = process.env.GOOGLE_PLACES_KEY || '';
