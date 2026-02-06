@@ -109,7 +109,7 @@ export class PdfService {
             justify-content: center;
           }
           .score-value { 
-            font-size: 72px; 
+            font-size: 84px; 
             font-weight: 800; 
             color: #0f172a; 
             line-height: 1; 
@@ -137,7 +137,7 @@ export class PdfService {
 
           .metrics-grid { 
             display: grid; 
-            grid-template-columns: 1fr 1fr; 
+            grid-template-columns: 1fr; 
             gap: 15px; 
           }
           .metric-box { 
@@ -247,22 +247,14 @@ export class PdfService {
             <div class="business-name">${report.normalizedPlace.name}</div>
             <div class="business-address">${report.normalizedPlace.address}</div>
             
-            <div class="metrics-grid">
-              <div class="metric-box">
-                <div class="metric-label">Nota Google</div>
-                <div class="metric-value">★ ${report.normalizedPlace.rating || 'N/A'}</div>
+            <div className="metrics-grid">
+              <div className="metric-box">
+                <div className="metric-label">Nota Google</div>
+                <div className="metric-value">★ ${report.normalizedPlace.rating || 'N/A'}</div>
               </div>
-              <div class="metric-box">
-                <div class="metric-label">Total Avaliações</div>
-                <div class="metric-value">${report.normalizedPlace.reviewsCount}</div>
-              </div>
-              <div class="metric-box">
-                <div class="metric-label">Website</div>
-                <div class="metric-value">${report.normalizedPlace.website ? 'Configurado' : 'Pendente'}</div>
-              </div>
-              <div class="metric-box">
-                <div class="metric-label">Status do Perfil</div>
-                <div class="metric-value">${report.normalizedPlace.businessStatus}</div>
+              <div className="metric-box">
+                <div className="metric-label">Total Avaliações</div>
+                <div className="metric-value">${report.normalizedPlace.reviewsCount}</div>
               </div>
             </div>
           </div>
