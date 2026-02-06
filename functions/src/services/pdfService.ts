@@ -247,7 +247,7 @@ export class PdfService {
             <div class="business-name">${report.normalizedPlace.name}</div>
             <div class="business-address">${report.normalizedPlace.address}</div>
             
-            <div className="metrics-grid">
+            <div class="metrics-grid">
               <div className="metric-box">
                 <div className="metric-label">Nota Google</div>
                 <div className="metric-value">★ ${report.normalizedPlace.rating || 'N/A'}</div>
