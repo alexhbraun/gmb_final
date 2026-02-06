@@ -12,6 +12,7 @@ export const api = onRequest({
   region: 'us-central1',
   memory: '1GiB', // Puppeteer needs more memory
   timeoutSeconds: 300, // Grid generation + Gemini can take time
+  cors: true,
 }, app);
 
 // Keep legacy-style exports for frontend compatibility if needed, 
