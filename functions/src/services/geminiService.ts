@@ -24,7 +24,7 @@ export class GeminiService {
   async generateAudit(data: any, language: string): Promise<AuditOutput | null> {
     try {
       // Updated to gemini-3-pro-preview as requested by user and verified in available models
-      const model = this.genAI.getGenerativeModel({ model: 'gemini-1.5-pro' });
+      const model = this.genAI.getGenerativeModel({ model: 'gemini-3-pro-preview' });
       const prompt = `
         Language: ${language}
         Data: ${JSON.stringify(data, null, 2)}
@@ -44,8 +44,8 @@ export class GeminiService {
 
       const responseText = result.response.text();
       return JSON.parse(responseText) as AuditOutput;
-    } catch (error) {
-      console.error('Gemini API Error:', error);
+    } catch (error: any) {
+      console.error('Gemini API Error:', error.message || error);
       return null;
     }
   }
