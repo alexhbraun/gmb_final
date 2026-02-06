@@ -50,21 +50,7 @@ export class PdfService {
             position: relative;
           }
           
-          /* Watermark */
-          body::before {
-            content: "CONFIDENCIAL - DIAGNÓSTICO ESTRATÉGICO";
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-45deg);
-            font-size: 40px;
-            font-weight: 900;
-            color: rgba(15, 23, 42, 0.03);
-            white-space: nowrap;
-            z-index: -1;
-            width: 100%;
-            text-align: center;
-          }
+          /* Watermark removed as per new supportive tone guidelines */
 
           .header { 
             display: flex; 
@@ -253,7 +239,7 @@ export class PdfService {
 
         <div class="footer">
           <div><span class="footer-brand">Alexander Braun</span> • Nexo Estratégia Digital</div>
-          <div>Auditoria baseada em dados públicos do Google Maps.</div>
+          <div>Relatório gerado a partir de dados públicos do Google Maps.</div>
         </div>
       </body>
       <html>
