@@ -253,7 +253,6 @@ app.get('/report/:id/pdf', async (req, res): Promise<any> => {
   const report = await cacheService.getCachedReportById(id);
   if (!report) return res.status(404).json({ message: 'Report not found' });
 
-  
   try {
     const pdfBuffer = await pdfService.generatePdf(report);
     res.setHeader('Content-Type', 'application/pdf');
@@ -263,6 +262,38 @@ app.get('/report/:id/pdf', async (req, res): Promise<any> => {
     console.error('PDF Error:', err);
     return res.status(500).json({ error: 'Failed to generate PDF' });
   }
+});
+
+// POST /report/:id/pdf (Accepts overrides for edited content)
+app.post('/report/:id/pdf', async (req, res): Promise<any> => {
+    const id = req.params.id;
+    const body = req.body;
+    let report = await cacheService.getCachedReportById(id);
+    
+    if (!report) {
+        // If we don't have it in cache but they provided the full object, we can still generate
+        if (body.normalizedPlace) {
+            report = body;
+        } else {
+            return res.status(404).json({ message: 'Report not found and no data provided' });
+        }
+    }
+
+    // Apply overrides from frontend editor
+    const mergedReport = {
+        ...report,
+        ...body
+    };
+
+    try {
+      const pdfBuffer = await pdfService.generatePdf(mergedReport);
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', `attachment; filename="gmb-audit-${id}.pdf"`);
+      return res.send(pdfBuffer);
+    } catch (err: any) {
+      console.error('PDF Error:', err);
+      return res.status(500).json({ error: 'Failed to generate PDF' });
+    }
 });
 
 // GET /report/:id/visibility.png
