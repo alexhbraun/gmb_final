@@ -2,6 +2,7 @@
 
 import ReactMarkdown from "react-markdown";
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import { Download, Share2, Check, ExternalLink } from "lucide-react";
 import { useState } from "react";
 
@@ -69,7 +70,12 @@ export function ReportDisplay({ report }: { report: any }) {
 
       {/* Main Report */}
       <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 prose prose-blue max-w-none prose-headings:text-gray-900 prose-strong:text-gray-900 prose-li:marker:text-blue-500">
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>{report.reportMarkdown}</ReactMarkdown>
+        <ReactMarkdown 
+          remarkPlugins={[remarkGfm]} 
+          rehypePlugins={[rehypeRaw]}
+        >
+          {report.reportMarkdown}
+        </ReactMarkdown>
       </div>
 
       {/* Quick Actions */}
