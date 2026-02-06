@@ -24,7 +24,7 @@ export class GeminiService {
   async generateAudit(data: any, language: string): Promise<AuditOutput | null> {
     try {
       // Updated to gemini-3-pro-preview as requested by user and verified in available models
-      const model = this.genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+      const model = this.genAI.getGenerativeModel({ model: 'gemini-1.5-pro' });
       const prompt = `
         Language: ${language}
         Data: ${JSON.stringify(data, null, 2)}
