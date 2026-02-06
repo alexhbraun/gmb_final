@@ -90,8 +90,8 @@ export class PdfService {
             border-radius: 2px;
           }
 
-          /* Auditor Notes / Handwritten */
-          .auditor-note {
+          /* Advisor Notes / Handwritten */
+          .advisor-note {
             font-family: 'Gochi Hand', cursive;
             background: rgba(254, 240, 138, 0.4); /* soft highlighter yellow */
             padding: 15px 25px;
