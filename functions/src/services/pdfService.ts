@@ -85,7 +85,7 @@ export class PdfService {
 
           .brand-divider { 
             height: 3px; 
-            background: linear-gradient(to right, #0f172a, #334155); 
+            background: #d7b27e; 
             margin: 20px 0 40px 0; 
             border-radius: 2px;
           }
@@ -96,7 +96,7 @@ export class PdfService {
             background: rgba(254, 240, 138, 0.4); /* soft highlighter yellow */
             padding: 15px 25px;
             margin: 30px 0;
-            border-left: 4px solid #eab308;
+            border-left: 4px solid #d7b27e;
             font-size: 18px;
             color: #1e293b;
             border-radius: 2px;
@@ -177,7 +177,7 @@ export class PdfService {
             display: inline-block;
             width: 4px;
             height: 20px;
-            background: #0f172a;
+            background: #d7b27e;
             margin-right: 12px;
             border-radius: 2px;
           }

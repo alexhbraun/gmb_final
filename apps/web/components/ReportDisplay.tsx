@@ -45,7 +45,7 @@ export function ReportDisplay({ report }: { report: any }) {
           </div>
           
           <div className="flex gap-4">
-            <ScoreCard label="Overall Score" value={report.overallScore} max={100} color="amber" />
+            <ScoreCard label="Overall Score" value={report.overallScore} max={100} color="brand" />
             <ScoreCard label="Rating" value={report.normalizedPlace.rating || 0} max={5} color="emerald" />
           </div>
         </div>
@@ -100,6 +100,7 @@ function ScoreCard({ label, value, max, color }: any) {
   const colors: any = {
     amber: "text-amber-600 border-amber-200 bg-amber-50",
     emerald: "text-green-600 border-green-200 bg-green-50",
+    brand: "text-[#b49466] border-[#d7b27e]/30 bg-[#d7b27e]/5",
   };
   return (
     <div className={`p-4 rounded-2xl border ${colors[color]} flex flex-col items-center justify-center shadow-sm`}>
